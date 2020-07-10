@@ -20,17 +20,33 @@ namespace TCE_Tools
 {
     public partial class Form1 : Form
     {
+        #region Fields
+
+        public List<public_category> PublicCategory = new List<public_category>();
+
+        public List<public_goods> PublicGoods = new List<public_goods>();
+
+        public List<public_marketprices> PublicMarketPrices = new List<public_marketprices>();
+
+        public List<public_markets> PublicMarkets = new List<public_markets>();
+
+        public List<public_stars> PublicStars = new List<public_stars>();
+
+        private public_markets SelectedMarket;
+
+        #endregion Fields
+
+        #region Constructors
+
         public Form1()
         {
             InitializeComponent();
         }
 
-        public List<public_stars> PublicStars = new List<public_stars>();
-        public List<public_markets> PublicMarkets = new List<public_markets>();
-        public List<public_marketprices> PublicMarketPrices = new List<public_marketprices>();
-        public List<public_goods> PublicGoods = new List<public_goods>();
-        public List<public_category> PublicCategory = new List<public_category>();
-        public_markets SelectedMarket;
+        #endregion Constructors
+
+        #region Methods
+
         private void button1_Click(object sender, EventArgs e)
         {
             DataSet myDataSet = new DataSet();
@@ -167,6 +183,7 @@ namespace TCE_Tools
             //comboBox1.DataSource= comboList;
             SelectedMarket = (public_markets)comboBox1.SelectedItem;
         }
+
         private void UpdateObjectListViewColumns(BrightIdeasSoftware.ObjectListView olv)
         {
             olv.BeginUpdate();
@@ -188,91 +205,202 @@ namespace TCE_Tools
 
             olv.EndUpdate();
         }
+
+        #endregion Methods
     }
-    public class public_stars
+
+    public class public_category
     {
-        private List<public_markets> _markets;
+        #region Properties
 
+        public String Category { get; set; }
+
+        [BrightIdeasSoftware.OLVIgnore]
         public Int64 ID { get; set; }
-        public String StarName { get; set; }
-        public Double X { get; set; }
-        public Double Y { get; set; }
-        public Double Z { get; set; }
-        public Int64 State { get; set; }
-        public String Note { get; set; }
-        public Int64 Class { get; set; }
-        public String Faction { get; set; }
-        public String FactionState { get; set; }
-        public String Government { get; set; }
-        public String Security { get; set; }
-        public String Economy { get; set; }
-        public String Allegiance { get; set; }
-        public String Population { get; set; }
-        public Int64 LastUpdate { get; set; }
-        public Int64 PowerID { get; set; }
-
-        //public List<public_markets> Markets
-        //{
-        //    get
-        //    {
-        //        if (_markets == null)
-        //            _markets = Parent.PublicMarkets.Where(x => (ID == x.StarID)).ToList();
-
-        //        return _markets;
-        //    }
-        //}
 
         internal Form1 Parent { get; set; }
 
+        #endregion Properties
+
+        #region Methods
+
         public override string ToString()
         {
-            return StarName;
+            return Category;
         }
+
+        #endregion Methods
+    }
+
+    public class public_goods
+    {
+        #region Fields
+
+        private public_category _category;
+
+        #endregion Fields
+
+        #region Properties
+
+        public Int64 AvgPrice { get; set; }
+
+        [BrightIdeasSoftware.OLVIgnore]
+        public Int64 Category { get; set; }
+
+        public string CategoryName
+        {
+            get
+            {
+                return CategoryObj?.Category ?? "";
+            }
+        }
+
+        [BrightIdeasSoftware.OLVIgnore]
+        public public_category CategoryObj
+        {
+            get
+            {
+                if (_category == null)
+                    _category = Parent.PublicCategory.FirstOrDefault(x => (Category == x.ID));
+
+                return _category;
+            }
+        }
+
+        [BrightIdeasSoftware.OLVIgnore]
+        public Int64 ED_ID { get; set; }
+
+        [BrightIdeasSoftware.OLVIgnore]
+        public Int64 EDDB_ID { get; set; }
+
+        [BrightIdeasSoftware.OLVIgnore]
+        public Int64 ID { get; set; }
+
+        public String Tradegood { get; set; }
+        internal Form1 Parent { get; set; }
+
+        #endregion Properties
+
+        #region Methods
+
+        public override string ToString()
+        {
+            return Tradegood;
+        }
+
+        #endregion Methods
+    }
+
+    public class public_marketprices
+    {
+        #region Fields
+
+        private public_goods _good;
+        private public_markets _market;
+
+        #endregion Fields
+
+        #region Properties
+
+        public Int64 Buy { get; set; }
+
+        [BrightIdeasSoftware.OLVIgnore]
+        public public_goods Good
+        {
+            get
+            {
+                if (_good == null)
+                    _good = Parent.PublicGoods.FirstOrDefault(x => (GoodID == x.ID));
+
+                return _good;
+            }
+        }
+
+        public Int64 GoodID { get; set; }
+
+        public string GoodName
+        {
+            get
+            {
+                return Good?.Tradegood ?? "";
+            }
+        }
+
+        public Int64 ID { get; set; }
+
+        [BrightIdeasSoftware.OLVIgnore]
+        public public_markets Market
+        {
+            get
+            {
+                if (_market == null)
+                    _market = Parent.PublicMarkets.FirstOrDefault(x => (MarketID == x.ID));
+
+                return _market;
+            }
+        }
+
+        public Int64 MarketID { get; set; }
+
+        public string MarketName
+        {
+            get
+            {
+                return Market?.MarketName ?? "";
+            }
+        }
+
+        public Int64 Sell { get; set; }
+        public Int64 Stock { get; set; }
+        internal Form1 Parent { get; set; }
+
+        #endregion Properties
     }
 
     public class public_markets
     {
-        private public_stars _star;
-        private List<public_marketprices> _marketprices;
+        #region Fields
 
-        public Int64 ID { get; set; }
-        public String MarketName { get; set; }
-        public Int64 StarID { get; set; }
-        public String StarName { get; set; }
-        public Int64 SectorID { get; set; }
+        private List<public_marketprices> _marketprices;
+        private public_stars _star;
+
+        #endregion Fields
+
+        #region Properties
+
         public Int64 AllegianceID { get; set; }
-        public Int64 PriEconomy { get; set; }
-        public Int64 SecEconomy { get; set; }
-        public Int64 DistanceStar { get; set; }
-        public Int64 LastDate { get; set; }
-        public String LastTime { get; set; }
-        public Int64 MarketType { get; set; }
-        public Int64 Refuel { get; set; }
-        public Int64 Repair { get; set; }
-        public Int64 Rearm { get; set; }
-        public Int64 Outfitting { get; set; }
-        public Int64 Shipyard { get; set; }
         public Int64 Blackmarket { get; set; }
-        public Decimal Hangar { get; set; }
-        public Int64 RareID { get; set; }
-        public Decimal ShipyardID { get; set; }
-        public String Notes { get; set; }
-        public Decimal PosX { get; set; }
-        public Decimal PosY { get; set; }
-        public Decimal PosZ { get; set; }
+        public String BodyName { get; set; }
+        public Int64 Broker { get; set; }
+        public Int64 DistanceStar { get; set; }
+        public Int64 EDDB_ID { get; set; }
         public String Faction { get; set; }
         public String FactionState { get; set; }
         public String Government { get; set; }
-        public String Security { get; set; }
-        public String BodyName { get; set; }
-        public Int64 Broker { get; set; }
-        public Int64 Visits { get; set; }
-        public Int64 EDDB_ID { get; set; }
-        public Int64 LastUpdate { get; set; }
-        public Int64 TechBroker { get; set; }
-        public Int64 MatBroker { get; set; }
+        public Decimal Hangar { get; set; }
+        public Int64 ID { get; set; }
         public String IllegalGoods { get; set; }
-        internal Form1 Parent { get; set; }
+        public Int64 LastDate { get; set; }
+        public String LastTime { get; set; }
+        public Int64 LastUpdate { get; set; }
+        public String MarketName { get; set; }
+        public Int64 MarketType { get; set; }
+        public Int64 MatBroker { get; set; }
+        public String Notes { get; set; }
+        public Int64 Outfitting { get; set; }
+        public Decimal PosX { get; set; }
+        public Decimal PosY { get; set; }
+        public Decimal PosZ { get; set; }
+        public Int64 PriEconomy { get; set; }
+        public Int64 RareID { get; set; }
+        public Int64 Rearm { get; set; }
+        public Int64 Refuel { get; set; }
+        public Int64 Repair { get; set; }
+        public Int64 SecEconomy { get; set; }
+        public Int64 SectorID { get; set; }
+        public String Security { get; set; }
+        public Int64 Shipyard { get; set; }
+        public Decimal ShipyardID { get; set; }
 
         public public_stars Star
         {
@@ -284,6 +412,19 @@ namespace TCE_Tools
                 return _star;
             }
         }
+
+        public string StarAndMarketName
+        {
+            get
+            {
+                return $"{StarName}: {MarketName}";
+            }
+        }
+
+        public Int64 StarID { get; set; }
+        public String StarName { get; set; }
+        public Int64 TechBroker { get; set; }
+        public Int64 Visits { get; set; }
 
         [AutoMapper.IgnoreMap]
         internal List<public_marketprices> MarketPrices
@@ -298,126 +439,69 @@ namespace TCE_Tools
             }
         }
 
-        public string StarAndMarketName
-        {
-            get
-            {
-                return $"{StarName}: {MarketName}";
-            }
-        }
+        internal Form1 Parent { get; set; }
+
+        #endregion Properties
+
+        #region Methods
 
         public override string ToString()
         {
             return StarAndMarketName;
         }
-    }
-    public class public_marketprices
-        {
-        private public_goods _good;
-        private public_markets _market;
 
-        public Int64 ID { get; set; }
-            public Int64 MarketID { get; set; }
-            public Int64 GoodID { get; set; }
-            public Int64 Buy { get; set; }
-            public Int64 Sell { get; set; }
-            public Int64 Stock { get; set; }
-
-        [BrightIdeasSoftware.OLVIgnore]
-        public public_markets Market
-        {
-            get
-            {
-                if (_market == null)
-                    _market = Parent.PublicMarkets.FirstOrDefault(x => (MarketID == x.ID));
-
-                return _market;
-            }
-        }
-        public string MarketName
-        {
-            get
-            {
-                return Market?.MarketName ??"";
-            }
-        }
-
-        [BrightIdeasSoftware.OLVIgnore]
-        public public_goods Good
-        {
-            get
-            {
-                if (_good == null)
-                    _good = Parent.PublicGoods.FirstOrDefault(x => (GoodID == x.ID));
-
-                return _good;
-            }
-        }
-
-        public string GoodName
-        {
-            get
-            {
-                return Good?.Tradegood ?? "";
-            }
-        }
-
-        internal Form1 Parent { get; set; }
+        #endregion Methods
     }
 
-    public class public_goods
+    public class public_stars
     {
+        #region Fields
 
-        [BrightIdeasSoftware.OLVIgnore]
+        private List<public_markets> _markets;
+
+        #endregion Fields
+
+        #region Properties
+
+        public String Allegiance { get; set; }
+        public Int64 Class { get; set; }
+        public String Economy { get; set; }
+        public String Faction { get; set; }
+        public String FactionState { get; set; }
+        public String Government { get; set; }
         public Int64 ID { get; set; }
-        public String Tradegood { get; set; }
+        public Int64 LastUpdate { get; set; }
+        public String Note { get; set; }
+        public String Population { get; set; }
+        public Int64 PowerID { get; set; }
+        public String Security { get; set; }
+        public String StarName { get; set; }
+        public Int64 State { get; set; }
+        public Double X { get; set; }
+        public Double Y { get; set; }
+        public Double Z { get; set; }
+        //public List<public_markets> Markets
+        //{
+        //    get
+        //    {
+        //        if (_markets == null)
+        //            _markets = Parent.PublicMarkets.Where(x => (ID == x.StarID)).ToList();
 
-        [BrightIdeasSoftware.OLVIgnore]
-        public Int64 Category { get; set; }
-        public Int64 AvgPrice { get; set; }
-        [BrightIdeasSoftware.OLVIgnore]
-        public Int64 EDDB_ID { get; set; }
-        [BrightIdeasSoftware.OLVIgnore]
-        public Int64 ED_ID { get; set; }
+        //        return _markets;
+        //    }
+        //}
+
         internal Form1 Parent { get; set; }
 
-        private public_category _category;
+        #endregion Properties
 
-        [BrightIdeasSoftware.OLVIgnore]
-        public public_category CategoryObj
-        {
-            get
-            {
-                if (_category == null)
-                    _category = Parent.PublicCategory.FirstOrDefault(x => (Category == x.ID));
-
-                return _category;
-            }
-        }
-        public string CategoryName
-        {
-            get
-            {
-                return CategoryObj?.Category ??"";
-            }
-        }
-
+        #region Methods
 
         public override string ToString()
         {
-            return Tradegood;
+            return StarName;
         }
-    }
 
-    public class public_category
-    {
-        internal Form1 Parent { get; set; }
-        [BrightIdeasSoftware.OLVIgnore]
-        public Int64 ID { get; set; }
-        public String Category { get; set; }
-        public override string ToString()
-        {
-            return Category;
-        }
+        #endregion Methods
     }
 }
