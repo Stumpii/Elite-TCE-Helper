@@ -37,9 +37,9 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.fastDataListView5 = new BrightIdeasSoftware.FastDataListView();
-            this.fastDataListView6 = new BrightIdeasSoftware.FastDataListView();
             this.button2 = new System.Windows.Forms.Button();
+            this.fastDataListView6 = new BrightIdeasSoftware.FastDataListView();
+            this.fastDataListView5 = new BrightIdeasSoftware.FastDataListView();
             ((System.ComponentModel.ISupportInitialize)(this.fastDataListView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fastDataListView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fastDataListView3)).BeginInit();
@@ -47,8 +47,8 @@
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fastDataListView5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fastDataListView6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fastDataListView5)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -71,6 +71,7 @@
             this.fastDataListView1.HideSelection = false;
             this.fastDataListView1.Location = new System.Drawing.Point(6, 6);
             this.fastDataListView1.Name = "fastDataListView1";
+            this.fastDataListView1.ShowGroups = false;
             this.fastDataListView1.Size = new System.Drawing.Size(756, 153);
             this.fastDataListView1.TabIndex = 2;
             this.fastDataListView1.UseCompatibleStateImageBehavior = false;
@@ -122,7 +123,7 @@
             this.fastDataListView4.Location = new System.Drawing.Point(6, 391);
             this.fastDataListView4.Name = "fastDataListView4";
             this.fastDataListView4.ShowGroups = false;
-            this.fastDataListView4.Size = new System.Drawing.Size(756, 87);
+            this.fastDataListView4.Size = new System.Drawing.Size(756, 145);
             this.fastDataListView4.TabIndex = 5;
             this.fastDataListView4.UseCompatibleStateImageBehavior = false;
             this.fastDataListView4.View = System.Windows.Forms.View.Details;
@@ -173,21 +174,14 @@
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // fastDataListView5
+            // button2
             // 
-            this.fastDataListView5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.fastDataListView5.CellEditUseWholeCell = false;
-            this.fastDataListView5.DataSource = null;
-            this.fastDataListView5.FullRowSelect = true;
-            this.fastDataListView5.HideSelection = false;
-            this.fastDataListView5.Location = new System.Drawing.Point(3, 3);
-            this.fastDataListView5.Name = "fastDataListView5";
-            this.fastDataListView5.Size = new System.Drawing.Size(756, 142);
-            this.fastDataListView5.TabIndex = 6;
-            this.fastDataListView5.UseCompatibleStateImageBehavior = false;
-            this.fastDataListView5.View = System.Windows.Forms.View.Details;
-            this.fastDataListView5.VirtualMode = true;
+            this.button2.Location = new System.Drawing.Point(6, 151);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 8;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // fastDataListView6
             // 
@@ -199,20 +193,29 @@
             this.fastDataListView6.HideSelection = false;
             this.fastDataListView6.Location = new System.Drawing.Point(6, 181);
             this.fastDataListView6.Name = "fastDataListView6";
+            this.fastDataListView6.ShowGroups = false;
             this.fastDataListView6.Size = new System.Drawing.Size(756, 434);
             this.fastDataListView6.TabIndex = 7;
             this.fastDataListView6.UseCompatibleStateImageBehavior = false;
             this.fastDataListView6.View = System.Windows.Forms.View.Details;
             this.fastDataListView6.VirtualMode = true;
             // 
-            // button2
+            // fastDataListView5
             // 
-            this.button2.Location = new System.Drawing.Point(6, 151);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.fastDataListView5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.fastDataListView5.CellEditUseWholeCell = false;
+            this.fastDataListView5.DataSource = null;
+            this.fastDataListView5.FullRowSelect = true;
+            this.fastDataListView5.HideSelection = false;
+            this.fastDataListView5.Location = new System.Drawing.Point(3, 3);
+            this.fastDataListView5.Name = "fastDataListView5";
+            this.fastDataListView5.ShowGroups = false;
+            this.fastDataListView5.Size = new System.Drawing.Size(756, 142);
+            this.fastDataListView5.TabIndex = 6;
+            this.fastDataListView5.UseCompatibleStateImageBehavior = false;
+            this.fastDataListView5.View = System.Windows.Forms.View.Details;
+            this.fastDataListView5.VirtualMode = true;
             // 
             // Form1
             // 
@@ -231,8 +234,8 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.fastDataListView5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fastDataListView6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fastDataListView5)).EndInit();
             this.ResumeLayout(false);
 
         }
