@@ -37,9 +37,11 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.dataListView5 = new BrightIdeasSoftware.DataListView();
             this.button2 = new System.Windows.Forms.Button();
             this.fastDataListView6 = new BrightIdeasSoftware.FastDataListView();
-            this.fastDataListView5 = new BrightIdeasSoftware.FastDataListView();
+            this.radioButtonBuy = new System.Windows.Forms.RadioButton();
+            this.radioButtonSell = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.fastDataListView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fastDataListView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fastDataListView3)).BeginInit();
@@ -47,8 +49,8 @@
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataListView5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fastDataListView6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fastDataListView5)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -163,9 +165,11 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.radioButtonSell);
+            this.tabPage2.Controls.Add(this.radioButtonBuy);
+            this.tabPage2.Controls.Add(this.dataListView5);
             this.tabPage2.Controls.Add(this.button2);
             this.tabPage2.Controls.Add(this.fastDataListView6);
-            this.tabPage2.Controls.Add(this.fastDataListView5);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -173,6 +177,22 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // dataListView5
+            // 
+            this.dataListView5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataListView5.CellEditUseWholeCell = false;
+            this.dataListView5.DataSource = null;
+            this.dataListView5.FullRowSelect = true;
+            this.dataListView5.HideSelection = false;
+            this.dataListView5.Location = new System.Drawing.Point(6, 6);
+            this.dataListView5.Name = "dataListView5";
+            this.dataListView5.ShowGroups = false;
+            this.dataListView5.Size = new System.Drawing.Size(756, 139);
+            this.dataListView5.TabIndex = 9;
+            this.dataListView5.UseCompatibleStateImageBehavior = false;
+            this.dataListView5.View = System.Windows.Forms.View.Details;
             // 
             // button2
             // 
@@ -182,6 +202,7 @@
             this.button2.TabIndex = 8;
             this.button2.Text = "button2";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // fastDataListView6
             // 
@@ -200,22 +221,27 @@
             this.fastDataListView6.View = System.Windows.Forms.View.Details;
             this.fastDataListView6.VirtualMode = true;
             // 
-            // fastDataListView5
+            // radioButtonBuy
             // 
-            this.fastDataListView5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.fastDataListView5.CellEditUseWholeCell = false;
-            this.fastDataListView5.DataSource = null;
-            this.fastDataListView5.FullRowSelect = true;
-            this.fastDataListView5.HideSelection = false;
-            this.fastDataListView5.Location = new System.Drawing.Point(3, 3);
-            this.fastDataListView5.Name = "fastDataListView5";
-            this.fastDataListView5.ShowGroups = false;
-            this.fastDataListView5.Size = new System.Drawing.Size(756, 142);
-            this.fastDataListView5.TabIndex = 6;
-            this.fastDataListView5.UseCompatibleStateImageBehavior = false;
-            this.fastDataListView5.View = System.Windows.Forms.View.Details;
-            this.fastDataListView5.VirtualMode = true;
+            this.radioButtonBuy.AutoSize = true;
+            this.radioButtonBuy.Checked = true;
+            this.radioButtonBuy.Location = new System.Drawing.Point(120, 154);
+            this.radioButtonBuy.Name = "radioButtonBuy";
+            this.radioButtonBuy.Size = new System.Drawing.Size(43, 17);
+            this.radioButtonBuy.TabIndex = 10;
+            this.radioButtonBuy.TabStop = true;
+            this.radioButtonBuy.Text = "Buy";
+            this.radioButtonBuy.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonSell
+            // 
+            this.radioButtonSell.AutoSize = true;
+            this.radioButtonSell.Location = new System.Drawing.Point(169, 154);
+            this.radioButtonSell.Name = "radioButtonSell";
+            this.radioButtonSell.Size = new System.Drawing.Size(42, 17);
+            this.radioButtonSell.TabIndex = 11;
+            this.radioButtonSell.Text = "Sell";
+            this.radioButtonSell.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -234,8 +260,9 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataListView5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fastDataListView6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fastDataListView5)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -252,7 +279,9 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button button2;
         private BrightIdeasSoftware.FastDataListView fastDataListView6;
-        private BrightIdeasSoftware.FastDataListView fastDataListView5;
+        private BrightIdeasSoftware.DataListView dataListView5;
+        private System.Windows.Forms.RadioButton radioButtonSell;
+        private System.Windows.Forms.RadioButton radioButtonBuy;
     }
 }
 
