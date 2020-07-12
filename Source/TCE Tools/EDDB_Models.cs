@@ -70,9 +70,9 @@ namespace TCE_Tools
 
     public class MinorFactionPresence
     {
-        public int happiness_id { get; set; }
-        public int minor_faction_id { get; set; }
-        public double influence { get; set; }
+        public int? happiness_id { get; set; }
+        public int? minor_faction_id { get; set; }
+        public double? influence { get; set; }
         public List<ActiveState> active_states { get; set; }
         public List<object> pending_states { get; set; }
         public List<RecoveringState> recovering_states { get; set; }
@@ -81,7 +81,7 @@ namespace TCE_Tools
     public class StarSystem
     {
         public int id { get; set; }
-        public int edsm_id { get; set; }
+        public int? edsm_id { get; set; }
         public string name { get; set; }
         public double x { get; set; }
         public double y { get; set; }
@@ -93,7 +93,7 @@ namespace TCE_Tools
         public int? allegiance_id { get; set; }
         public string allegiance { get; set; }
         public List<State> states { get; set; }
-        public int security_id { get; set; }
+        public int? security_id { get; set; }
         public string security { get; set; }
         public int? primary_economy_id { get; set; }
         public string primary_economy { get; set; }
@@ -103,11 +103,11 @@ namespace TCE_Tools
         public bool needs_permit { get; set; }
         public int updated_at { get; set; }
         public string simbad_ref { get; set; }
-        public int controlling_minor_faction_id { get; set; }
+        public int? controlling_minor_faction_id { get; set; }
         public string controlling_minor_faction { get; set; }
-        public int reserve_type_id { get; set; }
+        public int? reserve_type_id { get; set; }
         public string reserve_type { get; set; }
         public List<MinorFactionPresence> minor_faction_presences { get; set; }
-        public long ed_system_address { get; set; }
+        public long? ed_system_address { get; set; }
     }
 }

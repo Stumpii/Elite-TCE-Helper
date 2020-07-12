@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.30225.117
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCE Tools", "TCE Tools\TCE Tools.csproj", "{19BD1E66-85D6-4501-A48A-1AEF6D279E1D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCE ToolsTests", "TCE ToolsTests\TCE ToolsTests.csproj", "{A154D2B5-C0A0-4D93-A266-9C41B4F82AAE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{19BD1E66-85D6-4501-A48A-1AEF6D279E1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19BD1E66-85D6-4501-A48A-1AEF6D279E1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{19BD1E66-85D6-4501-A48A-1AEF6D279E1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A154D2B5-C0A0-4D93-A266-9C41B4F82AAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A154D2B5-C0A0-4D93-A266-9C41B4F82AAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A154D2B5-C0A0-4D93-A266-9C41B4F82AAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A154D2B5-C0A0-4D93-A266-9C41B4F82AAE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

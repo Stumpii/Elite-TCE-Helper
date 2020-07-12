@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace TCE_Tools
 {
-    internal class EDDB_StarSystem
+    public class EDDB_StarSystem
     {
-        internal List<StarSystem> starSystems;
+        public List<StarSystem> starSystems;
 
-        internal bool ReadFile()
+        public bool ReadFile()
         {
             starSystems = new List<StarSystem>();
 
@@ -23,6 +23,27 @@ namespace TCE_Tools
             {
                 StarSystem myDeserializedClass = JsonConvert.DeserializeObject<StarSystem>(line);
                 starSystems.Add(myDeserializedClass);
+            }
+
+            return true;
+        }
+    }
+
+    public class EDDB_Station
+    {
+        public List<Station> stations;
+
+        public bool ReadFile()
+        {
+            stations = new List<Station>();
+
+            // Read the file and display it line by line.
+            StreamReader file1 = new global::System.IO.StreamReader(@"C:\TCE\EDDB_Data\EDDB_Stations.jsonl");
+            string line;
+            while ((line = file1.ReadLine()) != null)
+            {
+                Station myDeserializedClass = JsonConvert.DeserializeObject<Station>(line);
+                stations.Add(myDeserializedClass);
             }
 
             return true;

@@ -228,18 +228,10 @@ namespace TCE_Tools
             fastDataListView7.DataSource = eDDB_StarSystem.starSystems;
             Helper.UpdateObjectListViewColumns(fastDataListView7);
 
-            List<Station> stations = new List<Station>();
+            EDDB_Station eDDB_Station = new EDDB_Station();
+            eDDB_Station.ReadFile();
 
-            // Read the file and display it line by line.
-            StreamReader file1 = new global::System.IO.StreamReader(@"C:\TCE\EDDB_Data\EDDB_Stations.jsonl");
-            string line;
-            while ((line = file1.ReadLine()) != null)
-            {
-                Station myDeserializedClass = JsonConvert.DeserializeObject<Station>(line);
-                stations.Add(myDeserializedClass);
-            }
-
-            fastDataListView5.DataSource = stations;
+            fastDataListView5.DataSource = eDDB_Station.stations;
             Helper.UpdateObjectListViewColumns(fastDataListView5);
         }
     }
