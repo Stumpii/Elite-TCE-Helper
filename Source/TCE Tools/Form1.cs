@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SQLite;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Security.Policy;
 using System.Text;
@@ -14,6 +15,7 @@ using AutoMapper;
 using AutoMapper.Configuration.Conventions;
 using AutoMapper.Data;
 using BrightIdeasSoftware;
+using Newtonsoft.Json;
 using PropertyChanged;
 
 namespace TCE_Tools
@@ -169,7 +171,6 @@ namespace TCE_Tools
             dataListView5.DataSource = PublicGoods;
             Helper.UpdateObjectListViewColumns(dataListView5);
 
-
             //List<string> myList =  PublicMarkets.Select(x => (x.ToString())).ToList();
             //myList.Sort();
             //comboBox1.DataSource = myList;
@@ -185,7 +186,6 @@ namespace TCE_Tools
             SelectedMarket = (public_markets)comboBox1.SelectedItem;
         }
 
-
         #endregion Methods
 
         private void button2_Click(object sender, EventArgs e)
@@ -194,16 +194,53 @@ namespace TCE_Tools
 
             if (radioButtonBuy.Checked)
             {
+                foreach (var item in SelectedMarket.ClosestMarkets)
+                {
+                    item.ReferenceMarket = SelectedMarket;
+                }
+
                 fastDataListView6.DataSource = public_Good.MarketPrices.Where(x => x.Stock > 0).ToList();
                 Helper.UpdateObjectListViewColumns(fastDataListView6);
             }
             else
             {
+                foreach (var item in SelectedMarket.ClosestMarkets)
+                {
+                    item.ReferenceMarket = SelectedMarket;
+                }
+
                 fastDataListView6.DataSource = SelectedMarket.ClosestMarkets;
                 //fastDataListView6.DataSource = public_Good.MarketPrices;
                 Helper.UpdateObjectListViewColumns(fastDataListView6);
             }
         }
-    }
 
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SelectedMarket = (public_markets)comboBox1.SelectedItem;
+        }
+
+        private void button_Click(object sender, EventArgs e)
+        {
+            EDDB_StarSystem eDDB_StarSystem = new EDDB_StarSystem();
+            eDDB_StarSystem.ReadFile();
+
+            fastDataListView7.DataSource = eDDB_StarSystem.starSystems;
+            Helper.UpdateObjectListViewColumns(fastDataListView7);
+
+            List<Station> stations = new List<Station>();
+
+            // Read the file and display it line by line.
+            StreamReader file1 = new global::System.IO.StreamReader(@"C:\TCE\EDDB_Data\EDDB_Stations.jsonl");
+            string line;
+            while ((line = file1.ReadLine()) != null)
+            {
+                Station myDeserializedClass = JsonConvert.DeserializeObject<Station>(line);
+                stations.Add(myDeserializedClass);
+            }
+
+            fastDataListView5.DataSource = stations;
+            Helper.UpdateObjectListViewColumns(fastDataListView5);
+        }
+    }
 }

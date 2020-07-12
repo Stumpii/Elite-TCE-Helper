@@ -91,7 +91,6 @@ namespace TCE_Tools
             }
         }
 
-
         #region Methods
 
         public override string ToString()
@@ -175,6 +174,10 @@ namespace TCE_Tools
         private List<public_markets> _closestMarkets;
         private List<public_marketprices> _marketprices;
         private public_stars _star;
+
+        [AutoMapper.IgnoreMap]
+        internal public_markets ReferenceMarket { get; set; }
+
         #endregion Fields
 
         #region Properties
@@ -187,7 +190,8 @@ namespace TCE_Tools
 
         public Int64 Broker { get; set; }
 
-        public List<public_markets> ClosestMarkets
+        [AutoMapper.IgnoreMap]
+        internal List<public_markets> ClosestMarkets
         {
             get
             {
@@ -195,6 +199,27 @@ namespace TCE_Tools
                     _closestMarkets = Parent.PublicMarkets.Where(x => (DistanceTo(x) < 16)).ToList();
 
                 return _closestMarkets;
+            }
+        }
+
+        [AutoMapper.IgnoreMap]
+        public double DistanceToMarket
+        {
+            get
+            {
+                if (ReferenceMarket != null)
+                {
+                    var x = this.Star.X - ReferenceMarket.Star.X;
+                    var y = this.Star.Y - ReferenceMarket.Star.Y;
+                    var z = this.Star.Z - ReferenceMarket.Star.Z;
+
+                    var xy = Math.Sqrt(Math.Pow(x, 2) + Math.Pow(y, 2));
+                    var xyz = Math.Sqrt(Math.Pow(xy, 2) + Math.Pow(z, 2));
+
+                    return xyz;
+                }
+                else
+                    return 1.0;
             }
         }
 
@@ -309,6 +334,7 @@ namespace TCE_Tools
 
             return xyz;
         }
+
         #endregion Properties
 
         #region Methods
@@ -320,7 +346,6 @@ namespace TCE_Tools
 
         #endregion Methods
     }
-
 
     public class public_stars
     {
@@ -362,5 +387,4 @@ namespace TCE_Tools
 
         #endregion Methods
     }
-
 }
