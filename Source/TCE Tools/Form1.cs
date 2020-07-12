@@ -225,14 +225,73 @@ namespace TCE_Tools
             EDDB_StarSystem eDDB_StarSystem = new EDDB_StarSystem();
             eDDB_StarSystem.ReadFile();
 
-            fastDataListView7.DataSource = eDDB_StarSystem.starSystems;
-            Helper.UpdateObjectListViewColumns(fastDataListView7);
+            eDDBStarSystemListLiew.DataSource = eDDB_StarSystem.starSystems;
+            Helper.UpdateObjectListViewColumns(eDDBStarSystemListLiew);
 
             EDDB_Station eDDB_Station = new EDDB_Station();
             eDDB_Station.ReadFile();
 
-            fastDataListView5.DataSource = eDDB_Station.stations;
-            Helper.UpdateObjectListViewColumns(fastDataListView5);
+            eDDBStationListView.DataSource = eDDB_Station.stations;
+            Helper.UpdateObjectListViewColumns(eDDBStationListView);
+        }
+
+        private bool disableStationListView;
+        private bool disableStarSystmListView;
+
+        private void eDDBStationListView_SelectionChanged(object sender, EventArgs e)
+        {
+            if (disableStationListView) return;
+
+            //Disable the updates of the other listview
+            disableStarSystmListView = true;
+
+            if (eDDBStationListView.SelectedObjects.Count == 1)
+            {
+                Station station = (Station)eDDBStationListView.SelectedObject;
+                var systemID = station.system_id;
+
+                foreach (var item in eDDBStarSystemListLiew.Objects)
+                {
+                    StarSystem starSystem = (StarSystem)item;
+                    if (starSystem.id == systemID)
+                    {
+                        eDDBStarSystemListLiew.SelectedObject = item;
+                        eDDBStarSystemListLiew.EnsureVisible(eDDBStarSystemListLiew.GetItemCount() - 1);
+                        eDDBStarSystemListLiew.EnsureVisible(eDDBStarSystemListLiew.SelectedIndex);
+                        break;
+                    }
+                }
+            }
+
+            disableStarSystmListView = false;
+        }
+
+        private void eDDBStarSystemListLiew_SelectionChanged(object sender, EventArgs e)
+        {
+            if (disableStarSystmListView) return;
+
+            //Disable the updates of the other listview
+            disableStationListView = true;
+
+            if (eDDBStarSystemListLiew.SelectedObjects.Count == 1)
+            {
+                StarSystem starSystem = (StarSystem)eDDBStarSystemListLiew.SelectedObject;
+
+                List<Station> stations = new List<Station>();
+                foreach (var item in eDDBStationListView.Objects)
+                {
+                    Station station = (Station)item;
+                    if (station.system_id == starSystem.id)
+                    {
+                        stations.Add(station);
+                    }
+                }
+                eDDBStationListView.SelectedObjects = stations;
+                eDDBStationListView.EnsureVisible(eDDBStationListView.GetItemCount() - 1);
+                eDDBStationListView.EnsureVisible(eDDBStationListView.SelectedIndices[0]);
+            }
+
+            disableStationListView = false;
         }
     }
 }

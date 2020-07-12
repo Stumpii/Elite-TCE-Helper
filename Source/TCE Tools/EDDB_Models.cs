@@ -15,6 +15,11 @@ namespace TCE_Tools
 
     public class Station
     {
+        public override string ToString()
+        {
+            return name;
+        }
+
         public int id { get; set; }
         public string name { get; set; }
         public int system_id { get; set; }
@@ -80,6 +85,11 @@ namespace TCE_Tools
 
     public class StarSystem
     {
+        public override string ToString()
+        {
+            return name;
+        }
+
         public int id { get; set; }
         public int? edsm_id { get; set; }
         public string name { get; set; }

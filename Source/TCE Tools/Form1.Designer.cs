@@ -43,9 +43,10 @@
             this.button2 = new System.Windows.Forms.Button();
             this.fastDataListView6 = new BrightIdeasSoftware.FastDataListView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.fastDataListView5 = new BrightIdeasSoftware.FastDataListView();
+            this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.button = new System.Windows.Forms.Button();
-            this.fastDataListView7 = new BrightIdeasSoftware.FastDataListView();
+            this.eDDBStationListView = new BrightIdeasSoftware.FastDataListView();
+            this.eDDBStarSystemListLiew = new BrightIdeasSoftware.FastDataListView();
             ((System.ComponentModel.ISupportInitialize)(this.fastDataListView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fastDataListView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fastDataListView3)).BeginInit();
@@ -56,8 +57,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataListView5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fastDataListView6)).BeginInit();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fastDataListView5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fastDataListView7)).BeginInit();
+            this.tableLayoutPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.eDDBStationListView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eDDBStarSystemListLiew)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -150,13 +152,16 @@
             // 
             // tabControl1
             // 
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Location = new System.Drawing.Point(12, 41);
+            this.tabControl1.Location = new System.Drawing.Point(4, 41);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(776, 647);
+            this.tabControl1.Size = new System.Drawing.Size(784, 443);
             this.tabControl1.TabIndex = 7;
             // 
             // tabPage1
@@ -168,7 +173,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(768, 621);
+            this.tabPage1.Size = new System.Drawing.Size(776, 417);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -183,7 +188,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(768, 621);
+            this.tabPage2.Size = new System.Drawing.Size(776, 417);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -255,37 +260,35 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.fastDataListView7);
-            this.tabPage3.Controls.Add(this.fastDataListView5);
-            this.tabPage3.Controls.Add(this.button);
+            this.tabPage3.Controls.Add(this.tableLayoutPanel);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(768, 621);
+            this.tabPage3.Size = new System.Drawing.Size(776, 417);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "tabPage3";
+            this.tabPage3.Text = "EDDB";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // fastDataListView5
+            // tableLayoutPanel
             // 
-            this.fastDataListView5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.fastDataListView5.CellEditUseWholeCell = false;
-            this.fastDataListView5.DataSource = null;
-            this.fastDataListView5.FullRowSelect = true;
-            this.fastDataListView5.HideSelection = false;
-            this.fastDataListView5.Location = new System.Drawing.Point(6, 36);
-            this.fastDataListView5.Name = "fastDataListView5";
-            this.fastDataListView5.ShowGroups = false;
-            this.fastDataListView5.Size = new System.Drawing.Size(756, 273);
-            this.fastDataListView5.TabIndex = 8;
-            this.fastDataListView5.UseCompatibleStateImageBehavior = false;
-            this.fastDataListView5.View = System.Windows.Forms.View.Details;
-            this.fastDataListView5.VirtualMode = true;
+            this.tableLayoutPanel.ColumnCount = 1;
+            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel.Controls.Add(this.button, 0, 0);
+            this.tableLayoutPanel.Controls.Add(this.eDDBStationListView, 0, 2);
+            this.tableLayoutPanel.Controls.Add(this.eDDBStarSystemListLiew, 0, 1);
+            this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel.Name = "tableLayoutPanel";
+            this.tableLayoutPanel.RowCount = 3;
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel.Size = new System.Drawing.Size(770, 411);
+            this.tableLayoutPanel.TabIndex = 10;
             // 
             // button
             // 
-            this.button.Location = new System.Drawing.Point(7, 7);
+            this.button.Location = new System.Drawing.Point(3, 3);
             this.button.Name = "button";
             this.button.Size = new System.Drawing.Size(75, 23);
             this.button.TabIndex = 0;
@@ -293,28 +296,45 @@
             this.button.UseVisualStyleBackColor = true;
             this.button.Click += new System.EventHandler(this.button_Click);
             // 
-            // fastDataListView7
+            // eDDBStationListView
             // 
-            this.fastDataListView7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.fastDataListView7.CellEditUseWholeCell = false;
-            this.fastDataListView7.DataSource = null;
-            this.fastDataListView7.FullRowSelect = true;
-            this.fastDataListView7.HideSelection = false;
-            this.fastDataListView7.Location = new System.Drawing.Point(6, 315);
-            this.fastDataListView7.Name = "fastDataListView7";
-            this.fastDataListView7.ShowGroups = false;
-            this.fastDataListView7.Size = new System.Drawing.Size(756, 273);
-            this.fastDataListView7.TabIndex = 9;
-            this.fastDataListView7.UseCompatibleStateImageBehavior = false;
-            this.fastDataListView7.View = System.Windows.Forms.View.Details;
-            this.fastDataListView7.VirtualMode = true;
+            this.eDDBStationListView.CellEditUseWholeCell = false;
+            this.eDDBStationListView.DataSource = null;
+            this.eDDBStationListView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.eDDBStationListView.FullRowSelect = true;
+            this.eDDBStationListView.HideSelection = false;
+            this.eDDBStationListView.Location = new System.Drawing.Point(3, 223);
+            this.eDDBStationListView.Name = "eDDBStationListView";
+            this.eDDBStationListView.ShowGroups = false;
+            this.eDDBStationListView.Size = new System.Drawing.Size(764, 185);
+            this.eDDBStationListView.TabIndex = 9;
+            this.eDDBStationListView.UseCompatibleStateImageBehavior = false;
+            this.eDDBStationListView.View = System.Windows.Forms.View.Details;
+            this.eDDBStationListView.VirtualMode = true;
+            this.eDDBStationListView.SelectionChanged += new System.EventHandler(this.eDDBStationListView_SelectionChanged);
+            // 
+            // eDDBStarSystemListLiew
+            // 
+            this.eDDBStarSystemListLiew.CellEditUseWholeCell = false;
+            this.eDDBStarSystemListLiew.DataSource = null;
+            this.eDDBStarSystemListLiew.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.eDDBStarSystemListLiew.FullRowSelect = true;
+            this.eDDBStarSystemListLiew.HideSelection = false;
+            this.eDDBStarSystemListLiew.Location = new System.Drawing.Point(3, 33);
+            this.eDDBStarSystemListLiew.Name = "eDDBStarSystemListLiew";
+            this.eDDBStarSystemListLiew.ShowGroups = false;
+            this.eDDBStarSystemListLiew.Size = new System.Drawing.Size(764, 184);
+            this.eDDBStarSystemListLiew.TabIndex = 8;
+            this.eDDBStarSystemListLiew.UseCompatibleStateImageBehavior = false;
+            this.eDDBStarSystemListLiew.View = System.Windows.Forms.View.Details;
+            this.eDDBStarSystemListLiew.VirtualMode = true;
+            this.eDDBStarSystemListLiew.SelectionChanged += new System.EventHandler(this.eDDBStarSystemListLiew_SelectionChanged);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 700);
+            this.ClientSize = new System.Drawing.Size(800, 484);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.button1);
@@ -331,8 +351,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataListView5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fastDataListView6)).EndInit();
             this.tabPage3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.fastDataListView5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fastDataListView7)).EndInit();
+            this.tableLayoutPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.eDDBStationListView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eDDBStarSystemListLiew)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -353,9 +374,10 @@
         private global::System.Windows.Forms.RadioButton radioButtonSell;
         private global::System.Windows.Forms.RadioButton radioButtonBuy;
         private global::System.Windows.Forms.TabPage tabPage3;
-        private BrightIdeasSoftware.FastDataListView fastDataListView5;
+        private BrightIdeasSoftware.FastDataListView eDDBStarSystemListLiew;
         private global::System.Windows.Forms.Button button;
-        private BrightIdeasSoftware.FastDataListView fastDataListView7;
+        private BrightIdeasSoftware.FastDataListView eDDBStationListView;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel;
     }
 }
 
