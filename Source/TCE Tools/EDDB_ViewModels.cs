@@ -1,6 +1,8 @@
-﻿using Newtonsoft.Json;
+﻿using CsvHelper;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -46,6 +48,32 @@ namespace TCE_Tools
                 stations.Add(myDeserializedClass);
             }
 
+            return true;
+        }
+    }
+
+    public class EDDB_Prices
+    {
+        public List<Prices> prices;
+
+        public bool ReadFile()
+        {
+            prices = new List<Prices>();
+
+            using (var reader = new StreamReader(@"C:\TCE\EDDB_Data\EDDB_Prices.csv"))
+            //using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+            //{
+            //    prices = csv.GetRecords<Prices>().ToList();
+            //}
+            using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+            {
+                while (csv.Read())
+                {
+                    var price = csv.GetRecord<Prices>();
+                    if (price != null)
+                        prices.Add(price);
+                }
+            }
             return true;
         }
     }

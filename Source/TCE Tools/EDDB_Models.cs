@@ -1,17 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace TCE_Tools
 {
     // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse);
-    public class State
-    {
-        public int id { get; set; }
-        public string name { get; set; }
-    }
 
     public class Station
     {
@@ -59,28 +50,12 @@ namespace TCE_Tools
         public int? body_id { get; set; }
         public int? controlling_minor_faction_id { get; set; }
         public long? ed_market_id { get; set; }
-    }
 
-    public class ActiveState
-    {
-        public int id { get; set; }
-        public string name { get; set; }
-    }
-
-    public class RecoveringState
-    {
-        public int id { get; set; }
-        public string name { get; set; }
-    }
-
-    public class MinorFactionPresence
-    {
-        public int? happiness_id { get; set; }
-        public int? minor_faction_id { get; set; }
-        public double? influence { get; set; }
-        public List<ActiveState> active_states { get; set; }
-        public List<object> pending_states { get; set; }
-        public List<RecoveringState> recovering_states { get; set; }
+        public class State
+        {
+            public int id { get; set; }
+            public string name { get; set; }
+        }
     }
 
     public class StarSystem
@@ -119,5 +94,47 @@ namespace TCE_Tools
         public string reserve_type { get; set; }
         public List<MinorFactionPresence> minor_faction_presences { get; set; }
         public long? ed_system_address { get; set; }
+
+        public class MinorFactionPresence
+        {
+            public int? happiness_id { get; set; }
+            public int? minor_faction_id { get; set; }
+            public double? influence { get; set; }
+            public List<ActiveState> active_states { get; set; }
+            public List<object> pending_states { get; set; }
+            public List<RecoveringState> recovering_states { get; set; }
+
+            public class ActiveState
+            {
+                public int id { get; set; }
+                public string name { get; set; }
+            }
+
+            public class RecoveringState
+            {
+                public int id { get; set; }
+                public string name { get; set; }
+            }
+        }
+
+        public class State
+        {
+            public int id { get; set; }
+            public string name { get; set; }
+        }
+    }
+
+    public class Prices
+    {
+        public int id { get; set; }
+        public int station_id { get; set; }
+        public int commodity_id { get; set; }
+        public int supply { get; set; }
+        public int? supply_bracket { get; set; }
+        public int buy_price { get; set; }
+        public int sell_price { get; set; }
+        public long demand { get; set; }
+        public int demand_bracket { get; set; }
+        public long collected_at { get; set; }
     }
 }

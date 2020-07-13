@@ -233,6 +233,12 @@ namespace TCE_Tools
 
             eDDBStationListView.DataSource = eDDB_Station.stations;
             Helper.UpdateObjectListViewColumns(eDDBStationListView);
+
+            EDDB_Prices eDDB_Prices = new EDDB_Prices();
+            eDDB_Prices.ReadFile();
+
+            fastDataListView5.DataSource = eDDB_Prices.prices;
+            Helper.UpdateObjectListViewColumns(fastDataListView5);
         }
 
         private bool disableStationListView;

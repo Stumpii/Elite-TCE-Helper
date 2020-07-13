@@ -33,4 +33,17 @@ namespace TCE_Tools.Tests
             Assert.IsTrue(result, "File not read correctly.");
         }
     }
+
+    [TestClass()]
+    public class EDDB_PricesTests
+    {
+        [TestMethod()]
+        public void ReadFileTest()
+        {
+            EDDB_Prices eDDB_Prices = new EDDB_Prices();
+            var result = eDDB_Prices.ReadFile();
+
+            Assert.IsTrue(result, "File not read correctly.");
+        }
+    }
 }

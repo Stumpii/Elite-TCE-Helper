@@ -47,6 +47,7 @@
             this.button = new System.Windows.Forms.Button();
             this.eDDBStationListView = new BrightIdeasSoftware.FastDataListView();
             this.eDDBStarSystemListLiew = new BrightIdeasSoftware.FastDataListView();
+            this.fastDataListView5 = new BrightIdeasSoftware.FastDataListView();
             ((System.ComponentModel.ISupportInitialize)(this.fastDataListView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fastDataListView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fastDataListView3)).BeginInit();
@@ -60,6 +61,7 @@
             this.tableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eDDBStationListView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eDDBStarSystemListLiew)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fastDataListView5)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -273,16 +275,18 @@
             // 
             this.tableLayoutPanel.ColumnCount = 1;
             this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel.Controls.Add(this.fastDataListView5, 0, 3);
             this.tableLayoutPanel.Controls.Add(this.button, 0, 0);
             this.tableLayoutPanel.Controls.Add(this.eDDBStationListView, 0, 2);
             this.tableLayoutPanel.Controls.Add(this.eDDBStarSystemListLiew, 0, 1);
             this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel.Name = "tableLayoutPanel";
-            this.tableLayoutPanel.RowCount = 3;
+            this.tableLayoutPanel.RowCount = 4;
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel.Size = new System.Drawing.Size(770, 411);
             this.tableLayoutPanel.TabIndex = 10;
             // 
@@ -303,10 +307,10 @@
             this.eDDBStationListView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.eDDBStationListView.FullRowSelect = true;
             this.eDDBStationListView.HideSelection = false;
-            this.eDDBStationListView.Location = new System.Drawing.Point(3, 223);
+            this.eDDBStationListView.Location = new System.Drawing.Point(3, 159);
             this.eDDBStationListView.Name = "eDDBStationListView";
             this.eDDBStationListView.ShowGroups = false;
-            this.eDDBStationListView.Size = new System.Drawing.Size(764, 185);
+            this.eDDBStationListView.Size = new System.Drawing.Size(764, 120);
             this.eDDBStationListView.TabIndex = 9;
             this.eDDBStationListView.UseCompatibleStateImageBehavior = false;
             this.eDDBStationListView.View = System.Windows.Forms.View.Details;
@@ -323,12 +327,28 @@
             this.eDDBStarSystemListLiew.Location = new System.Drawing.Point(3, 33);
             this.eDDBStarSystemListLiew.Name = "eDDBStarSystemListLiew";
             this.eDDBStarSystemListLiew.ShowGroups = false;
-            this.eDDBStarSystemListLiew.Size = new System.Drawing.Size(764, 184);
+            this.eDDBStarSystemListLiew.Size = new System.Drawing.Size(764, 120);
             this.eDDBStarSystemListLiew.TabIndex = 8;
             this.eDDBStarSystemListLiew.UseCompatibleStateImageBehavior = false;
             this.eDDBStarSystemListLiew.View = System.Windows.Forms.View.Details;
             this.eDDBStarSystemListLiew.VirtualMode = true;
             this.eDDBStarSystemListLiew.SelectionChanged += new System.EventHandler(this.eDDBStarSystemListLiew_SelectionChanged);
+            // 
+            // fastDataListView5
+            // 
+            this.fastDataListView5.CellEditUseWholeCell = false;
+            this.fastDataListView5.DataSource = null;
+            this.fastDataListView5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.fastDataListView5.FullRowSelect = true;
+            this.fastDataListView5.HideSelection = false;
+            this.fastDataListView5.Location = new System.Drawing.Point(3, 285);
+            this.fastDataListView5.Name = "fastDataListView5";
+            this.fastDataListView5.ShowGroups = false;
+            this.fastDataListView5.Size = new System.Drawing.Size(764, 123);
+            this.fastDataListView5.TabIndex = 10;
+            this.fastDataListView5.UseCompatibleStateImageBehavior = false;
+            this.fastDataListView5.View = System.Windows.Forms.View.Details;
+            this.fastDataListView5.VirtualMode = true;
             // 
             // Form1
             // 
@@ -354,6 +374,7 @@
             this.tableLayoutPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.eDDBStationListView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eDDBStarSystemListLiew)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fastDataListView5)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -378,6 +399,7 @@
         private global::System.Windows.Forms.Button button;
         private BrightIdeasSoftware.FastDataListView eDDBStationListView;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel;
+        private BrightIdeasSoftware.FastDataListView fastDataListView5;
     }
 }
 
