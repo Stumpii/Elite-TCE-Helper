@@ -153,14 +153,14 @@ namespace TCE_Tools
             foreach (var item in PublicCategory)
                 item.Parent = this;
 
-            //lvwStars.DataSource = PublicStars;
+            lvwStars.DataSource = PublicStars;
             Helper.UpdateObjectListViewColumns(lvwStars);
 
-            //lvwMarkets.DataSource = PublicMarkets;
+            lvwMarkets.DataSource = PublicMarkets;
             Helper.UpdateObjectListViewColumns(lvwMarkets);
 
             //lvwCategories.DataSource = PublicCategory;
-            Helper.UpdateObjectListViewColumns(lvwCategories);
+            //Helper.UpdateObjectListViewColumns(lvwCategories);
 
             lvwGoods.DataSource = PublicGoods;
             Helper.UpdateObjectListViewColumns(lvwGoods);
