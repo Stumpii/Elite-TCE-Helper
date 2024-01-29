@@ -134,7 +134,7 @@ namespace TCE_Tools
         public int buy_price { get; set; }
         public int sell_price { get; set; }
         public long demand { get; set; }
-        public int demand_bracket { get; set; }
+        public int? demand_bracket { get; set; }
         public long collected_at { get; set; }
     }
 }
